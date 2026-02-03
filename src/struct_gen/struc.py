@@ -1,7 +1,7 @@
 from os import makedirs, mkdir
 import sys
 from pathlib import Path
-from translate import strip_tag, translate_doc, get_pairs
+from .translate import strip_tag, translate_doc, get_pairs
 import tomllib
 
 def songstrct(secno, struct):
