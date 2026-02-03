@@ -46,8 +46,10 @@ def translate_doc(pairs, text, output_path, mode):
                 for src, dst in sorted(pairs, key=lambda x: len(x[0]), reverse=True):
                     line = line.replace(src, dst)
         repl.append(line)
+    text = "\n".join(repl)
 
-    clean = [" ".join(i.split()) for i in repl]
+    # collapse multiple spaces into one
+    clean = [" ".join(i.split()) for i in text.split("\n")]
     text = "\n".join(clean)
 
     output_path.write_text(text, encoding="utf-8")
